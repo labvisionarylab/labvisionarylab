@@ -8,34 +8,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <script>
-        function fixGridImg(img, baseName) {
-            if (!img.dataset.tries) img.dataset.tries = 0;
-            const exts = ['.jpg', '.png', '.jpeg', '.JPG', '.PNG', '.JPEG'];
-            let t = parseInt(img.dataset.tries);
-            if (t < exts.length) {
-                img.src = baseName + exts[t];
-                img.dataset.tries = t + 1;
-            } else {
-                img.onerror = null;
-                img.style.backgroundColor = '#1e293b';
-            }
-        }
-
-        function fixGalleryImg(img, baseName) {
-            if (!img.dataset.tries) img.dataset.tries = 0;
-            const exts = ['.jpg', '.png', '.jpeg', '.JPG', '.PNG', '.JPEG'];
-            let t = parseInt(img.dataset.tries);
-            if (t < exts.length) {
-                img.src = baseName + exts[t];
-                img.dataset.tries = t + 1;
-            } else {
-                img.onerror = null;
-                img.outerHTML = '<div style="height: 300px; display:flex; align-items:center; justify-content:center; background:#7f1d1d; color:#fff; border-radius:12px; width:100%; text-align:center; padding: 20px;"><b>⚠️ Gagal Memuat</b><br><small>File: ' + baseName + ' tidak ditemukan.</small></div>';
-            }
-        }
-    </script>
-
     <style>
         * {
             margin: 0;
@@ -55,6 +27,7 @@
             overflow-x: hidden;
         }
 
+        /* Nav & Logo Customizations */
         .navbar {
             background: rgba(11, 16, 32, 0.8) !important;
             backdrop-filter: blur(15px);
@@ -83,6 +56,7 @@
             margin-left: 20px;
         }
 
+        /* Buttons */
         .btn-custom {
             padding: 14px 30px;
             border-radius: 14px;
@@ -116,6 +90,7 @@
             transform: translateY(-3px);
         }
 
+        /* Hero Section */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -174,6 +149,7 @@
             flex-wrap: wrap;
         }
 
+        /* General Sections */
         section {
             padding: 100px 0;
         }
@@ -185,6 +161,7 @@
             font-weight: 700;
         }
 
+        /* Stats */
         .stats {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -204,6 +181,7 @@
             color: #38bdf8;
         }
 
+        /* Cards */
         .custom-card {
             background: rgba(255, 255, 255, 0.04);
             padding: 30px;
@@ -216,6 +194,7 @@
             transform: translateY(-8px);
         }
 
+        /* Portfolio Filter */
         .portfolio-filters {
             display: flex;
             justify-content: center;
@@ -243,6 +222,7 @@
             position: relative;
         }
 
+        /* PERBAIKAN UKURAN GAMBAR AGAR RAPI & SEJAJAR */
         .portfolio-card-hover .card-img-top {
             height: 250px;
             object-fit: cover;
@@ -274,6 +254,7 @@
             opacity: 1;
         }
 
+        /* Pricing */
         .pricing {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -302,6 +283,7 @@
             margin: 20px 0;
         }
 
+        /* Testimonials */
         .testimonials {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -314,6 +296,7 @@
             border-radius: 20px;
         }
 
+        /* CTA Section */
         .cta {
             text-align: center;
             padding: 100px 20px;
@@ -327,6 +310,7 @@
             font-weight: 700;
         }
         
+        /* Form Styling */
         .form-control:focus {
             background: rgba(255,255,255,0.1) !important;
             color: white !important;
@@ -344,6 +328,7 @@
             border-top: 1px solid rgba(255,255,255,0.05);
         }
 
+        /* Custom Modal Gallery Styling */
         .modal-content {
             background-color: #111827;
             border: 1px solid rgba(255,255,255,0.1);
@@ -355,6 +340,7 @@
             filter: invert(1);
         }
 
+        /* Popup Konsultasi CSS */
         .popup {
             display: none;
             position: fixed;
@@ -433,7 +419,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
     <div class="container">
         <a class="navbar-brand d-flex align-items-center" href="#home">
-            <img src="LOGO VISIONARY.ID.PNG" alt="VisionaryLab Logo" onerror="fixGridImg(this, 'LOGO VISIONARY.ID')"> 
+            <img src="LOGO VISIONARY.ID.PNG" alt="VisionaryLab Logo"> 
             Visionary<span>Lab</span>
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -537,7 +523,7 @@
             
             <div class="col-md-6 col-lg-4 portfolio-item" data-category="livery">
                 <div class="card bg-dark border-secondary h-100 portfolio-card-hover" onclick="openGallery('mobil1', 'Vehicle Livery Mobil')">
-                    <img src="livery-mobil.png" class="card-img-top img-fluid" alt="Vehicle Livery" onerror="fixGridImg(this, 'livery-mobil')">
+                    <img src="livery-mobil.png" class="card-img-top img-fluid" alt="Vehicle Livery" onerror="this.style.backgroundColor='#1e293b';">
                     <div class="card-body">
                         <h5 class="card-title text-white">Vehicle Livery</h5>
                         <p class="card-text text-secondary">Desain livery mobil profesional.</p>
@@ -547,7 +533,7 @@
 
             <div class="col-md-6 col-lg-4 portfolio-item" data-category="desain">
                 <div class="card bg-dark border-secondary h-100 portfolio-card-hover" onclick="openGallery('logo1', 'Logo Design Premium')">
-                    <img src="ABEL-GARAGE.png" class="card-img-top img-fluid" alt="Logo Design" onerror="fixGridImg(this, 'ABEL-GARAGE')">
+                    <img src="ABEL-GARAGE.png" class="card-img-top img-fluid" alt="Logo Design" onerror="this.style.backgroundColor='#1e293b';">
                     <div class="card-body">
                         <h5 class="card-title text-white">Logo Design</h5>
                         <p class="card-text text-secondary">Pembuatan logo modern dan premium.</p>
@@ -557,7 +543,7 @@
 
             <div class="col-md-6 col-lg-4 portfolio-item" data-category="desain">
                 <div class="card bg-dark border-secondary h-100 portfolio-card-hover" onclick="openGallery('poster1', 'Poster Design')">
-                    <img src="poster-ayam.jpg" class="card-img-top img-fluid" alt="Poster Design" onerror="fixGridImg(this, 'poster-ayam')">
+                    <img src="poster-ayam" class="card-img-top img-fluid" alt="Poster Design" onerror="this.style.backgroundColor='#1e293b';">
                     <div class="card-body">
                         <h5 class="card-title text-white">Poster Design</h5>
                         <p class="card-text text-secondary">Poster promosi dan branding.</p>
@@ -567,7 +553,7 @@
 
             <div class="col-md-6 col-lg-4 portfolio-item" data-category="desain">
                 <div class="card bg-dark border-secondary h-100 portfolio-card-hover" onclick="openGallery('feed1', 'Social Media Management')">
-                    <img src="img-feed1.jpg" class="card-img-top img-fluid" alt="Instagram Feed" onerror="fixGridImg(this, 'img-feed1')">
+                    <img src="img-feed1" class="card-img-top img-fluid" alt="Instagram Feed" onerror="this.style.backgroundColor='#1e293b';">
                     <div class="card-body">
                         <h5 class="card-title text-white">Social Media</h5>
                         <p class="card-text text-secondary">Feed Instagram profesional.</p>
@@ -577,7 +563,7 @@
 
             <div class="col-md-6 col-lg-4 portfolio-item" data-category="livery">
                 <div class="card bg-dark border-secondary h-100 portfolio-card-hover" onclick="openGallery('motor1', 'Motorcycle Livery')">
-                    <img src="livery-motor.png" class="card-img-top img-fluid" alt="Motor Livery" onerror="fixGridImg(this, 'livery-motor')">
+                    <img src="livery-motor.png" class="card-img-top img-fluid" alt="Motor Livery" onerror="this.style.backgroundColor='#1e293b';">
                     <div class="card-body">
                         <h5 class="card-title text-white">Motor Livery</h5>
                         <p class="card-text text-secondary">Desain livery motor racing.</p>
@@ -587,7 +573,7 @@
 
             <div class="col-md-6 col-lg-4 portfolio-item" data-category="editing">
                 <div class="card bg-dark border-secondary h-100 portfolio-card-hover" onclick="openGallery('edit1', 'Premium Photo Editing')">
-                    <img src="photoediting.jpeg" class="card-img-top img-fluid" alt="Photo Editing" onerror="fixGridImg(this, 'photoediting')">
+                    <img src="photoediting.jpeg" class="card-img-top img-fluid" alt="Photo Editing" onerror="this.style.backgroundColor='#1e293b';">
                     <div class="card-body">
                         <h5 class="card-title text-white">Photo Editing</h5>
                         <p class="card-text text-secondary">Editing foto realistis dan premium.</p>
@@ -786,15 +772,16 @@
     });
 
     // PENGATURAN DATA GALLERY 
-    // Menyesuaikan 100% dengan ekstensi di GitHub Anda
+    // Menyesuaikan 100% dengan Nama File dan Ekstensi persis seperti di GitHub Anda
     const galleryData = {
         'mobil1': ['livery-mobil.png'],
         'logo1': ['ABEL-GARAGE.png'],
-        'poster1': ['poster-ayam.jpg', 'poster bengkel.jpg'], 
-        'feed1': ['img-feed1.jpg'],
+        'poster1': ['poster-ayam', 'poster bengkel'], // Sesuai GitHub tanpa ekstensi
+        'feed1': ['img-feed1'], // Sesuai GitHub tanpa ekstensi
         'motor1': ['livery-motor.png'],
         'edit1': ['photoediting.jpeg', 'photo.jpeg'], 
         
+        // --- DATA PREVIEW HARGA PEMBUATAN WEB ---
         'web_basic': ['BASIC.jpeg'],
         'web_standard': ['STANDAR.jpeg', 'STANDAR-2.jpeg'],
         'web_premium': ['CUSTOM.jpeg']
@@ -817,16 +804,13 @@
         images.forEach((imgSrc, index) => {
             const isActive = index === 0 ? 'active' : ''; 
             
-            // Mengambil nama file tanpa ekstensi untuk sistem fallback (berjaga-jaga)
-            const baseNameSafe = imgSrc.substring(0, imgSrc.lastIndexOf('.'));
-
             carouselIndicators.innerHTML += `
                 <button type="button" data-bs-target="#portfolioCarousel" data-bs-slide-to="${index}" class="${isActive}" aria-current="${index === 0 ? 'true' : 'false'}"></button>
             `;
             
             carouselInner.innerHTML += `
                 <div class="carousel-item ${isActive}">
-                    <img src="${imgSrc}" class="d-block w-100 mx-auto" style="min-height: 250px; max-height: 60vh; object-fit: contain; background:#0b1020;" alt="Mencari Gambar..." onerror="fixGalleryImg(this, '${baseNameSafe}')">
+                    <img src="${imgSrc}" class="d-block w-100 mx-auto" style="min-height: 250px; max-height: 60vh; object-fit: contain; background:#0b1020;" alt="Gambar: ${imgSrc}">
                 </div>
             `;
         });
