@@ -419,7 +419,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
     <div class="container">
         <a class="navbar-brand d-flex align-items-center" href="#home">
-            <img src="LOGO VISIONARY.ID.PNG" alt="VisionaryLab Logo"> 
+            <img src="LOGO VISIONARY.ID.PNG" alt="VisionaryLab Logo" onerror="this.style.display='none';"> 
             Visionary<span>Lab</span>
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -523,7 +523,7 @@
             
             <div class="col-md-6 col-lg-4 portfolio-item" data-category="livery">
                 <div class="card bg-dark border-secondary h-100 portfolio-card-hover" onclick="openGallery('mobil1', 'Vehicle Livery Mobil')">
-                    <img src="livery-mobil.png" class="card-img-top img-fluid" alt="Vehicle Livery" onerror="this.style.backgroundColor='#1e293b';">
+                    <img src="livery-mobil.png" class="card-img-top img-fluid" alt="Vehicle Livery" onerror="this.onerror=null; this.src='https://via.placeholder.com/600x400/1e293b/ffffff?text=Cek+Nama+File';">
                     <div class="card-body">
                         <h5 class="card-title text-white">Vehicle Livery</h5>
                         <p class="card-text text-secondary">Desain livery mobil profesional.</p>
@@ -533,7 +533,7 @@
 
             <div class="col-md-6 col-lg-4 portfolio-item" data-category="desain">
                 <div class="card bg-dark border-secondary h-100 portfolio-card-hover" onclick="openGallery('logo1', 'Logo Design Premium')">
-                    <img src="ABEL-GARAGE.png" class="card-img-top img-fluid" alt="Logo Design" onerror="this.style.backgroundColor='#1e293b';">
+                    <img src="ABEL-GARAGE.png" class="card-img-top img-fluid" alt="Logo Design" onerror="this.onerror=null; this.src='https://via.placeholder.com/600x400/1e293b/ffffff?text=Cek+Nama+File';">
                     <div class="card-body">
                         <h5 class="card-title text-white">Logo Design</h5>
                         <p class="card-text text-secondary">Pembuatan logo modern dan premium.</p>
@@ -543,7 +543,7 @@
 
             <div class="col-md-6 col-lg-4 portfolio-item" data-category="desain">
                 <div class="card bg-dark border-secondary h-100 portfolio-card-hover" onclick="openGallery('poster1', 'Poster Design')">
-                    <img src="poster-ayam" class="card-img-top img-fluid" alt="Poster Design" onerror="this.style.backgroundColor='#1e293b';">
+                    <img src="poster-ayam.jpg" class="card-img-top img-fluid" alt="Poster Design" onerror="this.onerror=null; this.src='https://via.placeholder.com/600x400/1e293b/ffffff?text=Cek+Nama+File';">
                     <div class="card-body">
                         <h5 class="card-title text-white">Poster Design</h5>
                         <p class="card-text text-secondary">Poster promosi dan branding.</p>
@@ -553,7 +553,7 @@
 
             <div class="col-md-6 col-lg-4 portfolio-item" data-category="desain">
                 <div class="card bg-dark border-secondary h-100 portfolio-card-hover" onclick="openGallery('feed1', 'Social Media Management')">
-                    <img src="img-feed1" class="card-img-top img-fluid" alt="Instagram Feed" onerror="this.style.backgroundColor='#1e293b';">
+                    <img src="img-feed1.jpg" class="card-img-top img-fluid" alt="Instagram Feed" onerror="this.onerror=null; this.src='https://via.placeholder.com/600x400/1e293b/ffffff?text=Cek+Nama+File';">
                     <div class="card-body">
                         <h5 class="card-title text-white">Social Media</h5>
                         <p class="card-text text-secondary">Feed Instagram profesional.</p>
@@ -563,7 +563,7 @@
 
             <div class="col-md-6 col-lg-4 portfolio-item" data-category="livery">
                 <div class="card bg-dark border-secondary h-100 portfolio-card-hover" onclick="openGallery('motor1', 'Motorcycle Livery')">
-                    <img src="livery-motor.png" class="card-img-top img-fluid" alt="Motor Livery" onerror="this.style.backgroundColor='#1e293b';">
+                    <img src="livery-motor.png" class="card-img-top img-fluid" alt="Motor Livery" onerror="this.onerror=null; this.src='https://via.placeholder.com/600x400/1e293b/ffffff?text=Cek+Nama+File';">
                     <div class="card-body">
                         <h5 class="card-title text-white">Motor Livery</h5>
                         <p class="card-text text-secondary">Desain livery motor racing.</p>
@@ -573,7 +573,7 @@
 
             <div class="col-md-6 col-lg-4 portfolio-item" data-category="editing">
                 <div class="card bg-dark border-secondary h-100 portfolio-card-hover" onclick="openGallery('edit1', 'Premium Photo Editing')">
-                    <img src="photoediting.jpeg" class="card-img-top img-fluid" alt="Photo Editing" onerror="this.style.backgroundColor='#1e293b';">
+                    <img src="photoediting.jpeg" class="card-img-top img-fluid" alt="Photo Editing" onerror="this.onerror=null; this.src='https://via.placeholder.com/600x400/1e293b/ffffff?text=Cek+Nama+File';">
                     <div class="card-body">
                         <h5 class="card-title text-white">Photo Editing</h5>
                         <p class="card-text text-secondary">Editing foto realistis dan premium.</p>
@@ -771,17 +771,15 @@
         });
     });
 
-    // PENGATURAN DATA GALLERY 
-    // Menyesuaikan 100% dengan Nama File dan Ekstensi persis seperti di GitHub Anda
+    // PENGATURAN DATA GALLERY YANG SUDAH BERSIH & SAMA PERSIS DENGAN GITHUB
     const galleryData = {
         'mobil1': ['livery-mobil.png'],
         'logo1': ['ABEL-GARAGE.png'],
-        'poster1': ['poster-ayam', 'poster bengkel'], // Sesuai GitHub tanpa ekstensi
-        'feed1': ['img-feed1'], // Sesuai GitHub tanpa ekstensi
+        'poster1': ['poster-ayam.jpg', 'poster-bengkel.jpg'], // Pastikan Anda sudah ganti nama file ini di GitHub
+        'feed1': ['img-feed1.jpg'], // Pastikan Anda sudah ganti nama file ini di GitHub
         'motor1': ['livery-motor.png'],
         'edit1': ['photoediting.jpeg', 'photo.jpeg'], 
         
-        // --- DATA PREVIEW HARGA PEMBUATAN WEB ---
         'web_basic': ['BASIC.jpeg'],
         'web_standard': ['STANDAR.jpeg', 'STANDAR-2.jpeg'],
         'web_premium': ['CUSTOM.jpeg']
@@ -808,9 +806,12 @@
                 <button type="button" data-bs-target="#portfolioCarousel" data-bs-slide-to="${index}" class="${isActive}" aria-current="${index === 0 ? 'true' : 'false'}"></button>
             `;
             
+            // Pesan Error jika file tidak ditemukan
+            const errorScript = "this.onerror=null; this.src='https://via.placeholder.com/800x600/7f1d1d/ffffff?text=Error:+File+Tidak+Ditemukan';";
+
             carouselInner.innerHTML += `
                 <div class="carousel-item ${isActive}">
-                    <img src="${imgSrc}" class="d-block w-100 mx-auto" style="min-height: 250px; max-height: 60vh; object-fit: contain; background:#0b1020;" alt="Gambar: ${imgSrc}">
+                    <img src="${imgSrc}" class="d-block w-100 mx-auto" style="min-height: 250px; max-height: 60vh; object-fit: contain; background:#0b1020;" alt="Gambar: ${imgSrc}" onerror="${errorScript}">
                 </div>
             `;
         });
