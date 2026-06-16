@@ -8,6 +8,37 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
 
+    <script>
+        // Memperbaiki gambar di menu kotak (Grid)
+        function fixGridImg(img, baseName) {
+            if (!img.dataset.tries) img.dataset.tries = 0;
+            const exts = ['.jpg', '.png', '.jpeg', '.JPG', '.PNG', '.JPEG'];
+            let t = parseInt(img.dataset.tries);
+            if (t < exts.length) {
+                img.src = baseName + exts[t];
+                img.dataset.tries = t + 1;
+            } else {
+                img.onerror = null;
+                img.style.backgroundColor = '#1e293b';
+                img.alt = 'File tidak ditemukan: ' + baseName;
+            }
+        }
+
+        // Memperbaiki gambar di dalam Popup Gallery
+        function fixGalleryImg(img, baseName) {
+            if (!img.dataset.tries) img.dataset.tries = 0;
+            const exts = ['.jpg', '.png', '.jpeg', '.JPG', '.PNG', '.JPEG'];
+            let t = parseInt(img.dataset.tries);
+            if (t < exts.length) {
+                img.src = baseName + exts[t];
+                img.dataset.tries = t + 1;
+            } else {
+                img.onerror = null;
+                img.outerHTML = '<div style="height: 300px; display:flex; flex-direction:column; align-items:center; justify-content:center; background:#7f1d1d; color:#fff; padding:20px; text-align:center; border-radius:12px; width:100%;"><b>⚠️ Gambar Gagal Dimuat</b><br><small>File yang dicari: <u>' + baseName + '.*</u></small><br><small>Pastikan nama file di folder sama persis.</small></div>';
+            }
+        }
+    </script>
+
     <style>
         * {
             margin: 0;
@@ -27,7 +58,6 @@
             overflow-x: hidden;
         }
 
-        /* Nav & Logo Customizations */
         .navbar {
             background: rgba(11, 16, 32, 0.8) !important;
             backdrop-filter: blur(15px);
@@ -56,7 +86,6 @@
             margin-left: 20px;
         }
 
-        /* Buttons */
         .btn-custom {
             padding: 14px 30px;
             border-radius: 14px;
@@ -90,7 +119,6 @@
             transform: translateY(-3px);
         }
 
-        /* Hero Section */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -149,7 +177,6 @@
             flex-wrap: wrap;
         }
 
-        /* General Sections */
         section {
             padding: 100px 0;
         }
@@ -161,7 +188,6 @@
             font-weight: 700;
         }
 
-        /* Stats */
         .stats {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -181,7 +207,6 @@
             color: #38bdf8;
         }
 
-        /* Cards */
         .custom-card {
             background: rgba(255, 255, 255, 0.04);
             padding: 30px;
@@ -194,7 +219,6 @@
             transform: translateY(-8px);
         }
 
-        /* Portfolio Filter */
         .portfolio-filters {
             display: flex;
             justify-content: center;
@@ -222,7 +246,6 @@
             position: relative;
         }
 
-        /* PERBAIKAN UKURAN GAMBAR AGAR RAPI & SEJAJAR */
         .portfolio-card-hover .card-img-top {
             height: 250px;
             object-fit: cover;
@@ -254,7 +277,6 @@
             opacity: 1;
         }
 
-        /* Pricing */
         .pricing {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -283,7 +305,6 @@
             margin: 20px 0;
         }
 
-        /* Testimonials */
         .testimonials {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -296,7 +317,6 @@
             border-radius: 20px;
         }
 
-        /* CTA Section */
         .cta {
             text-align: center;
             padding: 100px 20px;
@@ -310,7 +330,6 @@
             font-weight: 700;
         }
         
-        /* Form Styling */
         .form-control:focus {
             background: rgba(255,255,255,0.1) !important;
             color: white !important;
@@ -328,7 +347,6 @@
             border-top: 1px solid rgba(255,255,255,0.05);
         }
 
-        /* Custom Modal Gallery Styling */
         .modal-content {
             background-color: #111827;
             border: 1px solid rgba(255,255,255,0.1);
@@ -340,7 +358,6 @@
             filter: invert(1);
         }
 
-        /* Popup Konsultasi CSS */
         .popup {
             display: none;
             position: fixed;
@@ -419,7 +436,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
     <div class="container">
         <a class="navbar-brand d-flex align-items-center" href="#home">
-            <img src="LOGO VISIONARY.ID.PNG" alt="VisionaryLab Logo" onerror="this.src='LOGO VISIONARY.ID.jpg'; this.onerror=function(){this.style.display='none'};"> 
+            <img src="LOGO VISIONARY.ID.png" alt="VisionaryLab Logo" onerror="fixGridImg(this, 'LOGO VISIONARY.ID')"> 
             Visionary<span>Lab</span>
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -523,7 +540,7 @@
             
             <div class="col-md-6 col-lg-4 portfolio-item" data-category="livery">
                 <div class="card bg-dark border-secondary h-100 portfolio-card-hover" onclick="openGallery('mobil1', 'Vehicle Livery Mobil')">
-                    <img src="livery-mobil.png" class="card-img-top img-fluid" alt="Vehicle Livery" onerror="if(this.src.includes('.jpg')){this.src=this.src.replace('.jpg','.png');}else if(this.src.includes('.png')){this.src=this.src.replace('.png','.jpeg');}else{this.onerror=null; this.style.backgroundColor='#1e293b';}">
+                    <img src="livery-mobil.jpg" class="card-img-top img-fluid" alt="Vehicle Livery" onerror="fixGridImg(this, 'livery-mobil')">
                     <div class="card-body">
                         <h5 class="card-title text-white">Vehicle Livery</h5>
                         <p class="card-text text-secondary">Desain livery mobil profesional.</p>
@@ -533,7 +550,7 @@
 
             <div class="col-md-6 col-lg-4 portfolio-item" data-category="desain">
                 <div class="card bg-dark border-secondary h-100 portfolio-card-hover" onclick="openGallery('logo1', 'Logo Design Premium')">
-                    <img src="ABEL-GARAGE.jpg" class="card-img-top img-fluid" alt="Logo Design" onerror="if(this.src.includes('.jpg')){this.src=this.src.replace('.jpg','.png');}else if(this.src.includes('.png')){this.src=this.src.replace('.png','.jpeg');}else{this.onerror=null; this.style.backgroundColor='#1e293b';}">
+                    <img src="ABEL-GARAGE.jpg" class="card-img-top img-fluid" alt="Logo Design" onerror="fixGridImg(this, 'ABEL-GARAGE')">
                     <div class="card-body">
                         <h5 class="card-title text-white">Logo Design</h5>
                         <p class="card-text text-secondary">Pembuatan logo modern dan premium.</p>
@@ -543,7 +560,7 @@
 
             <div class="col-md-6 col-lg-4 portfolio-item" data-category="desain">
                 <div class="card bg-dark border-secondary h-100 portfolio-card-hover" onclick="openGallery('poster1', 'Poster Design')">
-                    <img src="poster-ayam.jpg" class="card-img-top img-fluid" alt="Poster Design" onerror="if(this.src.includes('.jpg')){this.src=this.src.replace('.jpg','.png');}else if(this.src.includes('.png')){this.src=this.src.replace('.png','.jpeg');}else{this.onerror=null; this.style.backgroundColor='#1e293b';}">
+                    <img src="poster-ayam.jpg" class="card-img-top img-fluid" alt="Poster Design" onerror="fixGridImg(this, 'poster-ayam')">
                     <div class="card-body">
                         <h5 class="card-title text-white">Poster Design</h5>
                         <p class="card-text text-secondary">Poster promosi dan branding.</p>
@@ -553,7 +570,7 @@
 
             <div class="col-md-6 col-lg-4 portfolio-item" data-category="desain">
                 <div class="card bg-dark border-secondary h-100 portfolio-card-hover" onclick="openGallery('feed1', 'Social Media Management')">
-                    <img src="img-feed1.jpg" class="card-img-top img-fluid" alt="Instagram Feed" onerror="if(this.src.includes('.jpg')){this.src=this.src.replace('.jpg','.png');}else if(this.src.includes('.png')){this.src=this.src.replace('.png','.jpeg');}else{this.onerror=null; this.style.backgroundColor='#1e293b';}">
+                    <img src="img-feed1.jpg" class="card-img-top img-fluid" alt="Instagram Feed" onerror="fixGridImg(this, 'img-feed1')">
                     <div class="card-body">
                         <h5 class="card-title text-white">Social Media</h5>
                         <p class="card-text text-secondary">Feed Instagram profesional.</p>
@@ -563,7 +580,7 @@
 
             <div class="col-md-6 col-lg-4 portfolio-item" data-category="livery">
                 <div class="card bg-dark border-secondary h-100 portfolio-card-hover" onclick="openGallery('motor1', 'Motorcycle Livery')">
-                    <img src="livery-motor.jpg" class="card-img-top img-fluid" alt="Motor Livery" onerror="if(this.src.includes('.jpg')){this.src=this.src.replace('.jpg','.png');}else if(this.src.includes('.png')){this.src=this.src.replace('.png','.jpeg');}else{this.onerror=null; this.style.backgroundColor='#1e293b';}">
+                    <img src="livery-motor.jpg" class="card-img-top img-fluid" alt="Motor Livery" onerror="fixGridImg(this, 'livery-motor')">
                     <div class="card-body">
                         <h5 class="card-title text-white">Motor Livery</h5>
                         <p class="card-text text-secondary">Desain livery motor racing.</p>
@@ -573,7 +590,7 @@
 
             <div class="col-md-6 col-lg-4 portfolio-item" data-category="editing">
                 <div class="card bg-dark border-secondary h-100 portfolio-card-hover" onclick="openGallery('edit1', 'Premium Photo Editing')">
-                    <img src="photoediting.jpg" class="card-img-top img-fluid" alt="Photo Editing" onerror="if(this.src.includes('.jpg')){this.src=this.src.replace('.jpg','.png');}else if(this.src.includes('.png')){this.src=this.src.replace('.png','.jpeg');}else{this.onerror=null; this.style.backgroundColor='#1e293b';}">
+                    <img src="photoediting.jpg" class="card-img-top img-fluid" alt="Photo Editing" onerror="fixGridImg(this, 'photoediting')">
                     <div class="card-body">
                         <h5 class="card-title text-white">Photo Editing</h5>
                         <p class="card-text text-secondary">Editing foto realistis dan premium.</p>
@@ -771,24 +788,24 @@
         });
     });
 
+    // PENGATURAN DATA GALLERY 
+    // Nama Base Name ini SAMA PERSIS dengan nama file di folder Anda (tanpa ekstensi)
     const galleryData = {
-        // Data Portofolio: Sesuai Persis dengan yang ada di folder Anda (Dengan spasi/tanpa spasi)
-        'mobil1': ['livery mobil.png'],
-        'logo1': ['ABEL-GARAGE.jpg'],
-        'poster1': ['poster-ayam.jpg', 'poster bengkel.jpg'],
-        'feed1': ['img-feed1.jpg'],
-        'motor1': ['livery-motor.jpg'],
-        'edit1': ['photoediting.jpg', 'photo.jpg'], 
+        'mobil1': ['livery-mobil'],
+        'logo1': ['ABEL-GARAGE'],
+        'poster1': ['poster-ayam', 'poster bengkel'], 
+        'feed1': ['img-feed1'],
+        'motor1': ['livery-motor'],
+        'edit1': ['photoediting', 'photo'], 
         
-        // --- DATA PREVIEW HARGA PEMBUATAN WEB ---
-        'web_basic': ['BASIC.jpg'],
-        'web_standard': ['STANDAR.jpg', 'STANDAR-2.jpg'],
-        'web_premium': ['CUSTOM.jpg']
+        'web_basic': ['BASIC'],
+        'web_standard': ['STANDAR', 'STANDAR-2'],
+        'web_premium': ['CUSTOM']
     };
 
     function openGallery(projectId, projectTitle) {
-        const images = galleryData[projectId];
-        if (!images || images.length === 0) return;
+        const baseNames = galleryData[projectId];
+        if (!baseNames || baseNames.length === 0) return;
 
         document.getElementById('galleryModalLabel').innerText = projectTitle;
 
@@ -800,23 +817,21 @@
         carouselInner.innerHTML = '';
         carouselIndicators.innerHTML = '';
 
-        // Skrip Fallback Otomatis untuk Popup
-        const fallbackScript = "if(this.src.includes('.jpg')){this.src=this.src.replace('.jpg','.png');}else if(this.src.includes('.png')){this.src=this.src.replace('.png','.jpeg');}else{this.onerror=null; this.style.backgroundColor='#7f1d1d'; this.alt='Gambar tidak ditemukan. Ekstensi file salah.';}";
-
-        images.forEach((imgSrc, index) => {
+        baseNames.forEach((baseName, index) => {
             const isActive = index === 0 ? 'active' : ''; 
             carouselIndicators.innerHTML += `
                 <button type="button" data-bs-target="#portfolioCarousel" data-bs-slide-to="${index}" class="${isActive}" aria-current="${index === 0 ? 'true' : 'false'}"></button>
             `;
+            
             carouselInner.innerHTML += `
                 <div class="carousel-item ${isActive}">
-                    <img src="${imgSrc}" class="d-block w-100 text-center" style="min-height: 300px; max-height: 60vh; object-fit: contain; background:#0b1020; color:#fca5a5; line-height:300px;" alt="[Mencari Gambar...]" onerror="${fallbackScript}">
+                    <img src="${baseName}.jpg" class="d-block w-100 mx-auto" style="min-height: 250px; max-height: 60vh; object-fit: contain; background:#0b1020;" alt="Mencari Gambar..." onerror="fixGalleryImg(this, '${baseName}')">
                 </div>
             `;
         });
 
         // Logika penghilang tombol slide jika foto hanya 1
-        if (images.length > 1) {
+        if (baseNames.length > 1) {
             btnPrev.style.display = 'block';
             btnNext.style.display = 'block';
             carouselIndicators.style.display = 'flex';
