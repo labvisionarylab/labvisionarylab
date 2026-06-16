@@ -229,6 +229,7 @@
             object-position: top center;
             border-top-left-radius: 24px;
             border-top-right-radius: 24px;
+            background-color: #1e293b;
         }
         
         .portfolio-card-hover::after {
@@ -522,7 +523,7 @@
             
             <div class="col-md-6 col-lg-4 portfolio-item" data-category="livery">
                 <div class="card bg-dark border-secondary h-100 portfolio-card-hover" onclick="openGallery('mobil1', 'Vehicle Livery Mobil')">
-                    <img src="livery-mobil.png" class="card-img-top img-fluid" alt="Vehicle Livery" onerror="this.src='https://via.placeholder.com/600x400/2563eb/fff?text=Livery+Mobil'">
+                    <img src="livery-mobil.png" class="card-img-top img-fluid" alt="Vehicle Livery" onerror="if(this.src.includes('.jpg')){this.src=this.src.replace('.jpg','.png');}else if(this.src.includes('.png')){this.src=this.src.replace('.png','.jpeg');}else{this.onerror=null; this.style.backgroundColor='#1e293b';}">
                     <div class="card-body">
                         <h5 class="card-title text-white">Vehicle Livery</h5>
                         <p class="card-text text-secondary">Desain livery mobil profesional.</p>
@@ -532,7 +533,7 @@
 
             <div class="col-md-6 col-lg-4 portfolio-item" data-category="desain">
                 <div class="card bg-dark border-secondary h-100 portfolio-card-hover" onclick="openGallery('logo1', 'Logo Design Premium')">
-                    <img src="ABEL-GARAGE.jpg" class="card-img-top img-fluid" alt="Logo Design" onerror="this.src='ABEL-GARAGE.png'; this.onerror=function(){this.src='https://via.placeholder.com/600x400/111827/fff?text=Logo+Design'};">
+                    <img src="ABEL-GARAGE.jpg" class="card-img-top img-fluid" alt="Logo Design" onerror="if(this.src.includes('.jpg')){this.src=this.src.replace('.jpg','.png');}else if(this.src.includes('.png')){this.src=this.src.replace('.png','.jpeg');}else{this.onerror=null; this.style.backgroundColor='#1e293b';}">
                     <div class="card-body">
                         <h5 class="card-title text-white">Logo Design</h5>
                         <p class="card-text text-secondary">Pembuatan logo modern dan premium.</p>
@@ -542,7 +543,7 @@
 
             <div class="col-md-6 col-lg-4 portfolio-item" data-category="desain">
                 <div class="card bg-dark border-secondary h-100 portfolio-card-hover" onclick="openGallery('poster1', 'Poster Design')">
-                    <img src="poster-ayam.jpg" class="card-img-top img-fluid" alt="Poster Design" onerror="this.src='https://via.placeholder.com/600x400/38bdf8/fff?text=Poster+Design'">
+                    <img src="poster-ayam.jpg" class="card-img-top img-fluid" alt="Poster Design" onerror="if(this.src.includes('.jpg')){this.src=this.src.replace('.jpg','.png');}else if(this.src.includes('.png')){this.src=this.src.replace('.png','.jpeg');}else{this.onerror=null; this.style.backgroundColor='#1e293b';}">
                     <div class="card-body">
                         <h5 class="card-title text-white">Poster Design</h5>
                         <p class="card-text text-secondary">Poster promosi dan branding.</p>
@@ -552,7 +553,7 @@
 
             <div class="col-md-6 col-lg-4 portfolio-item" data-category="desain">
                 <div class="card bg-dark border-secondary h-100 portfolio-card-hover" onclick="openGallery('feed1', 'Social Media Management')">
-                    <img src="img-feed1.jpg" class="card-img-top img-fluid" alt="Instagram Feed" onerror="this.src='https://via.placeholder.com/600x400/1e40af/fff?text=Social+Media'">
+                    <img src="img-feed1.jpg" class="card-img-top img-fluid" alt="Instagram Feed" onerror="if(this.src.includes('.jpg')){this.src=this.src.replace('.jpg','.png');}else if(this.src.includes('.png')){this.src=this.src.replace('.png','.jpeg');}else{this.onerror=null; this.style.backgroundColor='#1e293b';}">
                     <div class="card-body">
                         <h5 class="card-title text-white">Social Media</h5>
                         <p class="card-text text-secondary">Feed Instagram profesional.</p>
@@ -562,7 +563,7 @@
 
             <div class="col-md-6 col-lg-4 portfolio-item" data-category="livery">
                 <div class="card bg-dark border-secondary h-100 portfolio-card-hover" onclick="openGallery('motor1', 'Motorcycle Livery')">
-                    <img src="livery-motor.jpg" class="card-img-top img-fluid" alt="Motor Livery" onerror="this.src='https://via.placeholder.com/600x400/f09433/fff?text=Motor+Livery'">
+                    <img src="livery-motor.jpg" class="card-img-top img-fluid" alt="Motor Livery" onerror="if(this.src.includes('.jpg')){this.src=this.src.replace('.jpg','.png');}else if(this.src.includes('.png')){this.src=this.src.replace('.png','.jpeg');}else{this.onerror=null; this.style.backgroundColor='#1e293b';}">
                     <div class="card-body">
                         <h5 class="card-title text-white">Motor Livery</h5>
                         <p class="card-text text-secondary">Desain livery motor racing.</p>
@@ -572,7 +573,7 @@
 
             <div class="col-md-6 col-lg-4 portfolio-item" data-category="editing">
                 <div class="card bg-dark border-secondary h-100 portfolio-card-hover" onclick="openGallery('edit1', 'Premium Photo Editing')">
-                    <img src="photoediting.jpg" class="card-img-top img-fluid" alt="Photo Editing" onerror="this.src='https://via.placeholder.com/600x400/0b1020/fff?text=Photo+Editing'">
+                    <img src="photoediting.jpg" class="card-img-top img-fluid" alt="Photo Editing" onerror="if(this.src.includes('.jpg')){this.src=this.src.replace('.jpg','.png');}else if(this.src.includes('.png')){this.src=this.src.replace('.png','.jpeg');}else{this.onerror=null; this.style.backgroundColor='#1e293b';}">
                     <div class="card-body">
                         <h5 class="card-title text-white">Photo Editing</h5>
                         <p class="card-text text-secondary">Editing foto realistis dan premium.</p>
@@ -771,25 +772,18 @@
     });
 
     const galleryData = {
-        // Data Portofolio: Sesuai dengan isi file yang ada di screenshot Anda
-        'mobil1': ['livery-mobil.png'],
+        // Data Portofolio: Sesuai Persis dengan yang ada di folder Anda (Dengan spasi/tanpa spasi)
+        'mobil1': ['livery mobil.png'],
         'logo1': ['ABEL-GARAGE.jpg'],
-        'poster1': ['poster-ayam.jpg', 'poster-bengkel.jpg'], // Ada 2 foto bisa di-slide
+        'poster1': ['poster-ayam.jpg', 'poster bengkel.jpg'],
         'feed1': ['img-feed1.jpg'],
         'motor1': ['livery-motor.jpg'],
-        'edit1': ['photoediting.jpg', 'photo.jpg'], // Foto Before & After
+        'edit1': ['photoediting.jpg', 'photo.jpg'], 
         
         // --- DATA PREVIEW HARGA PEMBUATAN WEB ---
-        'web_basic': [
-            'BASIC.jpg'
-        ],
-        'web_standard': [
-            'STANDAR.jpg',
-            'STANDAR-2.jpg'
-        ],
-        'web_premium': [
-            'CUSTOM.jpg'
-        ]
+        'web_basic': ['BASIC.jpg'],
+        'web_standard': ['STANDAR.jpg', 'STANDAR-2.jpg'],
+        'web_premium': ['CUSTOM.jpg']
     };
 
     function openGallery(projectId, projectTitle) {
@@ -806,6 +800,9 @@
         carouselInner.innerHTML = '';
         carouselIndicators.innerHTML = '';
 
+        // Skrip Fallback Otomatis untuk Popup
+        const fallbackScript = "if(this.src.includes('.jpg')){this.src=this.src.replace('.jpg','.png');}else if(this.src.includes('.png')){this.src=this.src.replace('.png','.jpeg');}else{this.onerror=null; this.style.backgroundColor='#7f1d1d'; this.alt='Gambar tidak ditemukan. Ekstensi file salah.';}";
+
         images.forEach((imgSrc, index) => {
             const isActive = index === 0 ? 'active' : ''; 
             carouselIndicators.innerHTML += `
@@ -813,7 +810,7 @@
             `;
             carouselInner.innerHTML += `
                 <div class="carousel-item ${isActive}">
-                    <img src="${imgSrc}" class="d-block w-100" style="max-height: 60vh; object-fit: contain; background:#0b1020;" alt="Portfolio Image" onerror="this.src='https://via.placeholder.com/800x600/dc2626/ffffff?text=Cek+Nama+File+Atau+Folder!'">
+                    <img src="${imgSrc}" class="d-block w-100 text-center" style="min-height: 300px; max-height: 60vh; object-fit: contain; background:#0b1020; color:#fca5a5; line-height:300px;" alt="[Mencari Gambar...]" onerror="${fallbackScript}">
                 </div>
             `;
         });
